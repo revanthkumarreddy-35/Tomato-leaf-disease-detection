@@ -2,7 +2,7 @@
 
 **Status**: ✅ Ready to Train  
 **Model**: YOLOv8n (Nano - Fast & Lightweight)  
-**Dataset**: 1000+ labeled images (9 disease classes)  
+**Dataset**: [Tomato Leaf Disease Detection (Kaggle)](https://www.kaggle.com/datasets/kpoviesistphane/tomato-leaf-disease-detection) — 1000+ labeled images (9 disease classes)  
 **Framework**: PyTorch + Ultralytics YOLO
 
 ---
