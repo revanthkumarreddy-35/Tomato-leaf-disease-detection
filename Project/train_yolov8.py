@@ -10,11 +10,15 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 def main():
-    # Check GPU availability
-    device = 0 if torch.cuda.is_available() else 'cpu'
-    if device == 0:
+    # Check GPU availability (NVIDIA CUDA or Apple MPS)
+    if torch.cuda.is_available():
+        device = 0
         print(f"✅ GPU Available: {torch.cuda.get_device_name(0)}")
+    elif hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
+        device = 'mps'
+        print("✅ GPU Available: Apple Silicon (MPS)")
     else:
+        device = 'cpu'
         print("⚠️ GPU not available, using CPU (training will be slow)")
 
     # Dataset configuration

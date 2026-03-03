@@ -1,7 +1,7 @@
 # 📝 YOLOv8 Tomato Leaf Disease Detection — Training Notes
 
 > **File to execute:** `train_yolov8.py`  
-> **Run from folder:** `C:\Users\revan\PyCharmMiscProject\Project\`  
+> **Run from folder:** The `Project/` directory  
 > **Command:** `python train_yolov8.py`
 
 ---
@@ -124,7 +124,7 @@ Tomato-Leaf-Disease-63/
 
 ### ❌ "Results image not found" / "Trained weights not found" (EVEN after training)
 - **Cause:** The notebook was using **relative paths** (`runs/detect/...`), but the notebook's working directory was different from `Project/`, so it couldn't find the files even though they existed.
-- **Fix (March 3, 2026):** Updated `project2_fixed.ipynb` to use **absolute paths** (`C:\Users\revan\PyCharmMiscProject\Project\runs\detect\...`). The notebook now auto-detects the latest training run regardless of working directory.
+- **Fix (March 3, 2026):** Updated `project2_fixed.ipynb` to use **relative paths** with `pathlib.Path`. The notebook now auto-detects the latest training run regardless of working directory or OS.
 
 ### ❌ "Dataset not found"
 - **Cause:** `Tomato-Leaf-Disease-63/` folder is missing or not in the right location.
@@ -154,7 +154,13 @@ Tomato-Leaf-Disease-63/
 from ultralytics import YOLO
 
 # Load trained model (use the latest successful run)
-model = YOLO(r'C:\Users\revan\PyCharmMiscProject\Project\runs\detect\tomato_disease_notebook4\weights\best.pt')
+from pathlib import Path
+
+# Load trained model (use the latest successful run)
+run_dir = Path('runs/detect')
+matching = sorted(run_dir.glob('tomato_disease_notebook*'), key=lambda p: p.stat().st_mtime)
+latest_run = matching[-1] if matching else run_dir / 'tomato_disease_notebook'
+model = YOLO(str(latest_run / 'weights' / 'best.pt'))
 
 # Run inference on a new image
 results = model.predict(source='your_image.jpg', conf=0.5)

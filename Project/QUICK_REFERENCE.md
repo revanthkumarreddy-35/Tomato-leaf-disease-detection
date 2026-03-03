@@ -37,7 +37,7 @@ STEP 2: Run Inference
 | What | Status | Location |
 |------|--------|----------|
 | Train script | ✅ Created | `train_yolov8.py` |
-| Quick start | ✅ Created | `quick_start.py` |
+| Setup check | ✅ Created | `setup.py` |
 | Inference | ✅ Fixed | `project2_fixed.ipynb` |
 | Guides | ✅ Created | `TRAINING_GUIDE.md` |
 
@@ -45,9 +45,9 @@ STEP 2: Run Inference
 
 ## To Get Started (Copy & Paste)
 
-```powershell
-# Open PowerShell and paste:
-cd "C:\Users\revan\PyCharmMiscProject\Project"
+```bash
+# Navigate to the Project folder and run:
+cd Project
 python train_yolov8.py
 ```
 
@@ -84,9 +84,9 @@ Epoch 50/50   Loss: 0.23    Val/box_loss: 0.15
 
 ```
 Your Trained Model:
-  C:\Users\revan\PyCharmMiscProject\Project\
-  └── runs\detect\tomato_disease_notebook\
-      ├── weights\best.pt          ⭐ USE THIS
+  Project/
+  └── runs/detect/tomato_disease_notebook/
+      ├── weights/best.pt          ⭐ USE THIS
       ├── results.png              📊 METRICS
       └── confusion_matrix.png     📈 ANALYSIS
 ```
@@ -98,7 +98,7 @@ Your Trained Model:
 | Task | Command |
 |------|---------|
 | Train (Python) | `python train_yolov8.py` |
-| Train (Quick) | `python quick_start.py` |
+| Setup Check | `python setup.py` |
 | Train (Jupyter) | `jupyter notebook train_model.ipynb` |
 | Test Results | `jupyter notebook project2_fixed.ipynb` |
 | Check GPU | `nvidia-smi` |
@@ -128,7 +128,7 @@ If you see all of these → SUCCESS! ✅
 |-------|----------|
 | "Out of Memory" | Change `batch=8` in train_yolov8.py |
 | "GPU not found" | Update NVIDIA drivers |
-| "Dataset not found" | Run from: `C:\Users\revan\PyCharmMiscProject\Project` |
+| "Dataset not found" | Make sure `Tomato-Leaf-Disease-63/` folder is in the `Project/` directory |
 | "No module ultralytics" | `pip install ultralytics --upgrade` |
 
 ---

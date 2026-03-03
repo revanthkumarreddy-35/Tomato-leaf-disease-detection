@@ -55,7 +55,7 @@ pip install ultralytics matplotlib
 
 ### Step 2: Navigate to Project Directory
 ```bash
-cd C:\Users\revan\PyCharmMiscProject\Project
+cd Project
 ```
 
 ## Training Instructions
@@ -172,13 +172,11 @@ pip install ultralytics --upgrade
 ```
 
 ### Issue: Dataset not found
-**Make sure you're running the script from the correct directory:**
+**Make sure you're running the script from the Project directory:**
 ```bash
-# Correct:
-cd C:\Users\revan\PyCharmMiscProject\Project
+# Navigate to the Project folder first:
+cd Project
 python train_yolov8.py
-
-# Or update dataset path in script
 ```
 
 ## Performance Metrics

@@ -3,8 +3,8 @@
 ## Quick Navigation
 
 ### 🚀 START HERE
-- **`train.bat`** - Windows users: double-click this!
-- **`train_yolov8.py`** - Everyone else: run this!
+- **`train_yolov8.py`** - Run this to start training!
+- **`setup.py`** - Check your environment & dependencies
 - **`README.md`** - Complete documentation
 
 ---
@@ -13,9 +13,8 @@
 
 | File | Best For | How to Use |
 |------|----------|-----------|
-| `train.bat` | 🪟 Windows Users | Double-click |
 | `train_yolov8.py` | 🐍 Python Users | `python train_yolov8.py` |
-| `quick_start.py` | 🤖 Automation | `python quick_start.py` |
+| `setup.py` | 🔧 Setup Check | `python setup.py` |
 | `train_model.ipynb` | 📓 Jupyter Users | `jupyter notebook train_model.ipynb` |
 
 ---
@@ -44,12 +43,12 @@
 ## 📂 Directory Structure
 
 ```
-C:\Users\revan\PyCharmMiscProject\Project\
+Project/
 │
-├── 🚀 TRAINING (Choose One)
-│   ├── train.bat
+├── 🚀 TRAINING
 │   ├── train_yolov8.py
-│   ├── quick_start.py
+│   ├── setup.py
+│   ├── requirements.txt
 │   └── train_model.ipynb
 │
 ├── 📊 INFERENCE
@@ -80,24 +79,26 @@ C:\Users\revan\PyCharmMiscProject\Project\
 
 ## 🎯 Quick Start Paths
 
-### Path 1: Windows (Easiest)
+### Path 1: Quick Setup
 ```
-1. Double-click: train.bat
-2. Wait 30-60 minutes
-3. See results automatically!
+1. python setup.py       (check environment)
+2. pip install -r requirements.txt
+3. python train_yolov8.py
+4. Wait 30-60 minutes
+5. See results automatically!
 ```
 
 ### Path 2: Python (Recommended)
 ```
-1. Open PowerShell
-2. Run: python train_yolov8.py
+1. cd Project
+2. python train_yolov8.py
 3. Wait 30-60 minutes
 4. See results automatically!
 ```
 
 ### Path 3: Jupyter (Educational)
 ```
-1. Run: jupyter notebook train_model.ipynb
+1. jupyter notebook train_model.ipynb
 2. Click "Run" on each cell
 3. Follow the notebook steps
 4. See training progress in real-time
@@ -125,26 +126,18 @@ Choose which to read based on your need:
 
 ## ✅ What Each File Does
 
-### `train.bat`
-- **Purpose**: Easy Windows training
-- **Action**: Installs dependencies + trains model
-- **Usage**: Double-click
-- **Time**: 30-60 minutes
-- **Output**: Trained model + metrics
-
 ### `train_yolov8.py`
-- **Purpose**: Python training script
+- **Purpose**: Python training script (cross-platform)
 - **Action**: Complete training pipeline
 - **Usage**: `python train_yolov8.py`
 - **Time**: 30-60 minutes
 - **Output**: Trained model + metrics + test detections
 
-### `quick_start.py`
-- **Purpose**: Automated setup
-- **Action**: Install deps → Check GPU → Train
-- **Usage**: `python quick_start.py`
-- **Time**: 30-60 minutes
-- **Output**: Everything automated
+### `setup.py`
+- **Purpose**: Environment checker & dependency installer
+- **Action**: Checks OS, GPU, dataset, and dependencies
+- **Usage**: `python setup.py`
+- **Output**: System info and readiness status
 
 ### `train_model.ipynb`
 - **Purpose**: Interactive Jupyter training
@@ -225,13 +218,13 @@ Choose which to read based on your need:
 ### I want to...
 
 **"Train my model quickly"**
-→ Use: `train.bat` (Windows) or `train_yolov8.py` (All)
+→ Use: `python train_yolov8.py`
 
 **"Train and see progress step-by-step"**
 → Use: `train_model.ipynb`
 
-**"Automate everything"**
-→ Use: `quick_start.py`
+**"Check my environment first"**
+→ Use: `python setup.py`
 
 **"Test my trained model"**
 → Use: `project2_fixed.ipynb`
@@ -251,9 +244,8 @@ Choose which to read based on your need:
 
 | File | Type | Execution | Output |
 |------|------|-----------|--------|
-| `train.bat` | Script | Double-click | Model + Metrics |
 | `train_yolov8.py` | Script | `python` | Model + Metrics |
-| `quick_start.py` | Script | `python` | Model + Metrics |
+| `setup.py` | Script | `python` | Environment check |
 | `train_model.ipynb` | Notebook | `jupyter` | Model + Metrics |
 | `project2_fixed.ipynb` | Notebook | `jupyter` | Detections |
 | `*.md` | Docs | Browser/Editor | Information |
@@ -332,8 +324,8 @@ Epoch 50/50   Loss: 0.23
 Choose your path, run the command, and let the training begin!
 
 ### Next Step:
-1. **Windows**: Double-click `train.bat`
-2. **Python**: Run `python train_yolov8.py`
+1. **Setup**: Run `python setup.py`
+2. **Train**: Run `python train_yolov8.py`
 3. **Jupyter**: Run `jupyter notebook train_model.ipynb`
 
 ---
@@ -341,9 +333,9 @@ Choose your path, run the command, and let the training begin!
 ## 📞 File Dependency Chain
 
 ```
-train.bat
+python setup.py (optional — checks environment)
     ↓
-train_yolov8.py
+python train_yolov8.py
     ↓
 Creates: data.yaml
          runs/detect/tomato_disease_notebook/weights/best.pt

@@ -21,11 +21,11 @@ Your notebook (`project2_fixed.ipynb`) wasn't showing any output because:
   - Shows step-by-step progress
   - Better for visualization
 
-#### 2️⃣ **QUICK START**
-- **`quick_start.py`**
-  - Automated setup and training
-  - Installs dependencies automatically
-  - Run: `python quick_start.py`
+#### 2️⃣ **SETUP CHECK**
+- **`setup.py`**
+  - Cross-platform environment checker
+  - Verifies dependencies and GPU
+  - Run: `python setup.py`
 
 #### 3️⃣ **INFERENCE**
 - **`project2_fixed.ipynb`** (Already updated)
@@ -42,10 +42,12 @@ Your notebook (`project2_fixed.ipynb`) wasn't showing any output because:
 
 ## Quick Start Guide
 
-### Option 1: Automatic Setup (Easiest)
+### Option 1: Quick Setup
 ```bash
-cd C:\Users\revan\PyCharmMiscProject\Project
-python quick_start.py
+cd Project
+python setup.py
+pip install -r requirements.txt
+python train_yolov8.py
 ```
 This will:
 - ✅ Install dependencies
@@ -55,13 +57,13 @@ This will:
 
 ### Option 2: Manual Training (Recommended)
 ```bash
-cd C:\Users\revan\PyCharmMiscProject\Project
+cd Project
 python train_yolov8.py
 ```
 
 ### Option 3: Jupyter Notebook
 ```bash
-cd C:\Users\revan\PyCharmMiscProject\Project
+cd Project
 jupyter notebook train_model.ipynb
 ```
 Then run each cell in order.
@@ -154,9 +156,9 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ```
 
 ### "Dataset not found"
-**Fix:** Make sure you're in correct directory:
+**Fix:** Make sure you're in the Project directory:
 ```bash
-cd C:\Users\revan\PyCharmMiscProject\Project
+cd Project
 ```
 
 ### "Still not showing output"
@@ -186,10 +188,11 @@ cd C:\Users\revan\PyCharmMiscProject\Project
 ## File Structure After Training
 
 ```
-C:\Users\revan\PyCharmMiscProject\Project\
+Project/
 ├── train_yolov8.py ⭐ RUN THIS
+├── setup.py
+├── requirements.txt
 ├── train_model.ipynb
-├── quick_start.py
 ├── project2_fixed.ipynb (updated)
 ├── TRAINING_GUIDE.md
 ├── data.yaml (created after training)

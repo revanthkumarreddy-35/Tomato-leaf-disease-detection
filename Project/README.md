@@ -7,23 +7,37 @@
 
 ---
 
-## 🚀 Quick Start (3 Options)
+## 🚀 Quick Start
 
-### Option 1️⃣: **Windows Users (Easiest)**
-Double-click: `train.bat`
-- Automatically installs dependencies
-- Checks GPU availability
-- Starts training
-- Shows progress
+### 1. Clone & Setup
+```bash
+git clone https://github.com/revanthkumarreddy-35/Tomato-leaf-disease-detection.git
+cd Tomato-leaf-disease-detection/Project
+python setup.py          # checks environment & dependencies
+pip install -r requirements.txt
+```
 
-### Option 2️⃣: **Command Line (Recommended)**
+### 2. Download Dataset
+Download from [Kaggle](https://www.kaggle.com/datasets/kpoviesistphane/tomato-leaf-disease-detection) and extract into the `Project/` folder so the structure is:
+```
+Project/Tomato-Leaf-Disease-63/
+├── train/images/
+├── valid/images/
+└── test/images/
+```
+
+### 3. Train the Model
 ```bash
 python train_yolov8.py
 ```
-
-### Option 3️⃣: **Jupyter Notebook**
+Or use the Jupyter notebook:
 ```bash
 jupyter notebook train_model.ipynb
+```
+
+### 4. Run Inference
+```bash
+jupyter notebook project2_fixed.ipynb
 ```
 
 ---
@@ -110,23 +124,21 @@ Open `project2_fixed.ipynb` and run all cells - it will automatically use your t
 ## 📁 File Structure
 
 ```
-C:\Users\revan\PyCharmMiscProject\Project\
-│
-├── 📄 train.bat ........................ Double-click to start! (Windows)
+Project/
 ├── 🐍 train_yolov8.py ................. Python training script
-├── 🚀 quick_start.py .................. Automated setup script
+├── 🔧 setup.py ........................ Cross-platform setup checker
+├── 📋 requirements.txt ................ Python dependencies
 ├── 📓 train_model.ipynb ............... Jupyter notebook version
-├── 📓 project2_fixed.ipynb ............ Inference notebook (FIXED)
+├── 📓 project2_fixed.ipynb ............ Inference notebook
 │
-├── 📚 TRAINING_GUIDE.md ............... Detailed documentation
-├── 📚 SOLUTION_SUMMARY.md ............. What was fixed
-├── 📚 QUICK_REFERENCE.md .............. Quick commands
 ├── 📚 README.md ....................... This file
+├── 📚 TRAINING_GUIDE.md ............... Detailed documentation
+├── 📚 QUICK_REFERENCE.md .............. Quick commands
 │
-├── 📦 Tomato-Leaf-Disease-63/ ........ Your training dataset
-│   ├── train/images/ .................. ~1000 training images
-│   ├── valid/images/ .................. ~200 validation images
-│   └── test/images/ ................... ~100 test images
+├── 📦 Tomato-Leaf-Disease-63/ ......... Training dataset (download separately)
+│   ├── train/images/
+│   ├── valid/images/
+│   └── test/images/
 │
 └── 📊 runs/ ........................... Created after training
     └── detect/tomato_disease_notebook/
@@ -139,20 +151,24 @@ C:\Users\revan\PyCharmMiscProject\Project\
 
 ## 🔧 System Requirements
 
+### Supported Operating Systems
+- **Windows** 10 / 11
+- **Linux** (Ubuntu 20.04+, Debian, Fedora, etc.)
+- **macOS** 12+ (Intel & Apple Silicon)
+
 ### Minimum
-- Windows 10/11 or Linux
 - Python 3.8+
 - 8GB RAM
 - 10GB free disk space
 
 ### Recommended for Fast Training
-- NVIDIA GPU (RTX 2060 or better)
-- 12GB+ VRAM
+- NVIDIA GPU (RTX 2060 or better) — Windows/Linux
+- Apple M1/M2/M3 (MPS acceleration) — macOS
 - 16GB+ System RAM
 - SSD for faster I/O
 
 ### Without GPU
-- Intel i7/Ryzen 5 (6+ cores)
+- Any modern multi-core CPU
 - 16GB RAM
 - Takes 8-12 hours to train
 
@@ -162,19 +178,32 @@ C:\Users\revan\PyCharmMiscProject\Project\
 
 ### Step 1: Install Dependencies
 ```bash
-cd C:\Users\revan\PyCharmMiscProject\Project
+cd Project
+pip install -r requirements.txt
+```
 
-# For GPU (NVIDIA)
+#### GPU-specific installs (optional, for faster training):
+
+**Windows / Linux (NVIDIA GPU):**
+```bash
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+```
 
-# For CPU only
+**macOS (Apple Silicon — MPS acceleration works automatically):**
+```bash
 pip install torch torchvision torchaudio
+```
 
-# For everyone
-pip install ultralytics matplotlib
+**CPU only (any OS):**
+```bash
+pip install torch torchvision torchaudio
 ```
 
 ### Step 2: Verify Installation
+```bash
+python setup.py
+```
+Or manually:
 ```bash
 python -c "import torch; print(f'GPU: {torch.cuda.is_available()}')"
 python -c "from ultralytics import YOLO; print('YOLOv8 OK')"
@@ -234,7 +263,7 @@ jupyter notebook project2_fixed.ipynb
 |---------|----------|
 | **"CUDA out of memory"** | Reduce batch size: `batch=8` in train_yolov8.py |
 | **"GPU not found"** | Update NVIDIA drivers, reinstall PyTorch with CUDA |
-| **"Dataset not found"** | Run script from: `C:\Users\revan\PyCharmMiscProject\Project` |
+| **"Dataset not found"** | Make sure `Tomato-Leaf-Disease-63/` folder is in the `Project/` directory |
 | **"Very slow training"** | You're using CPU. Install GPU drivers or use Google Colab |
 | **"No module ultralytics"** | Run: `pip install ultralytics --upgrade` |
 | **Training crashed** | Reduce batch size or epoch count |
@@ -364,10 +393,11 @@ A: Train longer (100+ epochs), use larger model (yolov8m/l), collect more data.
 Before running training, verify:
 
 - [ ] Python 3.8+ installed: `python --version`
-- [ ] In correct directory: `cd C:\Users\revan\PyCharmMiscProject\Project`
-- [ ] Dataset exists: `Tomato-Leaf-Disease-63` folder present
-- [ ] Dependencies installed: `pip list | findstr torch ultralytics`
-- [ ] GPU available (optional): `nvidia-smi` shows your GPU
+- [ ] In the `Project/` directory
+- [ ] Dataset exists: `Tomato-Leaf-Disease-63/` folder present
+- [ ] Dependencies installed: `pip install -r requirements.txt`
+- [ ] Run `python setup.py` — all checks pass
+- [ ] GPU available (optional): `nvidia-smi` (NVIDIA) or check via `python setup.py`
 
 ---
 
