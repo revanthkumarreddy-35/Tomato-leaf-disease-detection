@@ -1,14 +1,14 @@
 # Dataset (too large for GitHub)
-Project/Tomato-Leaf-Disease-63/
+Tomato-Leaf-Disease-63/
 
 # Training runs (large weights & output images)
-Project/runs/
+runs/
 
 # Pre-trained base model weights
 *.pt
 
 # Generated config
-Project/data.yaml
+data.yaml
 
 # Python
 __pycache__/
