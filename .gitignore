@@ -1,0 +1,28 @@
+# Dataset (too large for GitHub)
+Project/Tomato-Leaf-Disease-63/
+
+# Training runs (large weights & output images)
+Project/runs/
+
+# Pre-trained base model weights
+*.pt
+
+# Generated config
+Project/data.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store
+
