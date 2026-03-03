@@ -1,6 +1,9 @@
 # Dataset (too large for GitHub)
 Tomato-Leaf-Disease-63/
 
+# Legacy subfolder (files are at root now)
+Project/
+
 # Training runs (large weights & output images)
 runs/
 
