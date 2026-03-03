@@ -12,19 +12,31 @@
 ### 1. Clone & Setup
 ```bash
 git clone https://github.com/revanthkumarreddy-35/Tomato-leaf-disease-detection.git
-cd Tomato-leaf-disease-detection/Project
-python setup.py          # checks environment & dependencies
+cd Tomato-leaf-disease-detection
 pip install -r requirements.txt
 ```
 
 ### 2. Download Dataset
-Download from [Kaggle](https://www.kaggle.com/datasets/kpoviesistphane/tomato-leaf-disease-detection) and extract into the `Project/` folder so the structure is:
+
+**Option A — Kaggle CLI (automated):**
+```bash
+pip install kaggle
+kaggle datasets download -d kpoviesistphane/tomato-leaf-disease-detection --unzip
 ```
-Project/Tomato-Leaf-Disease-63/
+> Requires a Kaggle API key in `~/.kaggle/kaggle.json` (Linux/macOS) or `%USERPROFILE%\.kaggle\kaggle.json` (Windows).  
+> Get it from [Kaggle Settings](https://www.kaggle.com/settings) → "Create New Token".
+
+**Option B — Manual download:**  
+Download from [Kaggle](https://www.kaggle.com/datasets/kpoviesistphane/tomato-leaf-disease-detection), extract, and place so the structure is:
+```
+Tomato-Leaf-Disease-63/
 ├── train/images/
 ├── valid/images/
 └── test/images/
 ```
+
+**Option C — Use the notebook:**  
+The `train_model.ipynb` notebook has a built-in cell that downloads the dataset automatically.
 
 ### 3. Train the Model
 ```bash
@@ -124,11 +136,11 @@ Open `project2_fixed.ipynb` and run all cells - it will automatically use your t
 ## 📁 File Structure
 
 ```
-Project/
+Tomato-leaf-disease-detection/
 ├── 🐍 train_yolov8.py ................. Python training script
-├── 🔧 setup.py ........................ Cross-platform setup checker
+├── 🔧 setup.py ........................ Cross-platform environment checker
 ├── 📋 requirements.txt ................ Python dependencies
-├── 📓 train_model.ipynb ............... Jupyter notebook version
+├── 📓 train_model.ipynb ............... Jupyter notebook (training + dataset download)
 ├── 📓 project2_fixed.ipynb ............ Inference notebook
 │
 ├── 📚 README.md ....................... This file
@@ -178,7 +190,7 @@ Project/
 
 ### Step 1: Install Dependencies
 ```bash
-cd Project
+cd Tomato-leaf-disease-detection
 pip install -r requirements.txt
 ```
 
@@ -263,7 +275,7 @@ jupyter notebook project2_fixed.ipynb
 |---------|----------|
 | **"CUDA out of memory"** | Reduce batch size: `batch=8` in train_yolov8.py |
 | **"GPU not found"** | Update NVIDIA drivers, reinstall PyTorch with CUDA |
-| **"Dataset not found"** | Make sure `Tomato-Leaf-Disease-63/` folder is in the `Project/` directory |
+| **"Dataset not found"** | Make sure `Tomato-Leaf-Disease-63/` folder is in the repo root directory |
 | **"Very slow training"** | You're using CPU. Install GPU drivers or use Google Colab |
 | **"No module ultralytics"** | Run: `pip install ultralytics --upgrade` |
 | **Training crashed** | Reduce batch size or epoch count |
@@ -393,7 +405,7 @@ A: Train longer (100+ epochs), use larger model (yolov8m/l), collect more data.
 Before running training, verify:
 
 - [ ] Python 3.8+ installed: `python --version`
-- [ ] In the `Project/` directory
+- [ ] In the repo root directory (`Tomato-leaf-disease-detection/`)
 - [ ] Dataset exists: `Tomato-Leaf-Disease-63/` folder present
 - [ ] Dependencies installed: `pip install -r requirements.txt`
 - [ ] Run `python setup.py` — all checks pass
